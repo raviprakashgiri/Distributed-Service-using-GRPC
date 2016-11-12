@@ -1,22 +1,63 @@
-# Distributed-Service-using-GRPC
-CS 6210: Distributed Service using grpc - Project 3
+# CS 6210: Distributed Service using grpc - Project 3
 
-===== By: Ravi Prakash Giri (GTID: 903238554) ======
+# Setup
+Clone this repository:
+`git clone https://github.gatech.edu/akumar401/cs6210Project3.git`
 
-# To Run:
-1) go to src folder and then make
-2) run vendors from test directory by  `./run_vendors ../src/vendor_addresses.txt`
-3) Run store from src by `./store 0.0.0.0:50056 <num_of_threads>`  // EX. ./store 0.0.0.0:50056 12
+# Dependencies
+  1. `grpc` [How to Install](https://github.com/grpc/grpc/blob/master/INSTALL.md)
+  2. `protocol buffer` [How to Install](https://github.com/google/protobuf/blob/master/src/README.md) 
+    - You need version 3.0 of protoc to be able to generate code from the given proto files.
+    - I would suggest the best place to install this version is from the grpc repository itself. (`grpc/third_party/protobuf/`)
+    - In the instructions for installing protoc 3.0, `make check` might fail. continue installing even after that. If compilation works fine with this new protoc, all set for the project.
+  3. You need to be able to compile c++11 code on your Linux system
 
-// here You are require to give the 3 arguments to see the number of threads working. Although, I am taking server_address as an argument, but I am using the hardcoded store listening address as it was not mentioned in the description clearly. The 3rd argument is to vary the number of threads.
- Default store listening address is "0.0.0.0:50056" written hard-coded inside the run() function of server_async.cc file.
+# One way to get the dependencies
+1. [sudo] apt-get install build-essential autoconf libtool
+2. Create a new directory somewhere where you will pull code from github to install grpc and protobuf.
+     Then: `cd  $this_new_dir`
+2. git clone --recursive `-b $(curl -L http://grpc.io/release)` https://github.com/grpc/grpc
+3. cd  grpc/third_party/protobuf
+4. sudo apt-get install autoconf automake libtool curl make g++ unzip
+5. ./autogen.sh (it might fail, try further steps anyhow, might not create problems)
+6. ./configure
+7. sudo make
+8. make check (it might fail, try further steps anyhow, might not create problems)
+9. sudo make install
+10. sudo ldconfig
+11. cd ../../
+12. make
+13. sudo make install 
 
-4) Then from the test directory you can run ./run_tests 0.0.0.0:50056 <n>  here the 0.0.0.0:5056 is the address at which my store is listening.
+# Keeping your code upto date
+Although you are going to submit your solution through t-square only, after the clone, we recommend creating a branch and developing your code on that branch:
 
+`git checkout -b develop`
 
-# Output: 
-This is a sample output:
+(assuming develop is the name of your branch)
 
-Query id: 33, product: mobile4 is -->  (price: 0, vendor_id: VID: Vendor_localhost:50051 -- Vendor's Price: 69) (price: 0, vendor_id: VID: Vendor_localhost:50052 -- Vendor's Price: 78) (price: 0, vendor_id: VID: Vendor_localhost:50053 -- Vendor's Price: 76) (price: 0, vendor_id: VID: Vendor_localhost:50054 -- Vendor's Price: 84) (price: 0, vendor_id: VID: Vendor_localhost:50055 -- Vendor's Price: 33)
+Should the TAs need to push out an update to the assignment, commit (or stash if you are more comfortable with git) the changes that are unsaved in your repository:
 
-VID: Vendor_localhost:50051 -- Vendor's Price: 69 this a result from one of the 4 vendors.
+`git commit -am "<some funny message>"`
+
+Then update the master branch from remote:
+
+`git pull origin master`
+
+This updates your local copy of the master branch. Now try to merge the master branch into your development branch:
+
+`git merge master`
+
+(assuming that you are on your development branch)
+
+There are likely to be merge conflicts during this step. If so, first check what files are in conflict:
+
+`git status`
+
+The files in conflict are the ones that are "Not staged for commit". Open these files using your favourite editor and look for lines containing `<<<<` and `>>>>`. Resolve conflicts as seems best (ask a TA if you are confused!) and then save the file. Once you have resolved all conflicts, stage the files that were in conflict:
+
+`git add -A .`
+
+Finally, commit the new updates to your branch and continue developing:
+
+`git commit -am "<I did it>"`
