@@ -1,8 +1,5 @@
 # CS 6210: Distributed Service using grpc - Project 3
 
-# Setup
-Clone this repository:
-`git clone https://github.gatech.edu/akumar401/cs6210Project3.git`
 
 # Dependencies
   1. `grpc` [How to Install](https://github.com/grpc/grpc/blob/master/INSTALL.md)
