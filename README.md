@@ -1,8 +1,5 @@
 # CS 6210: Distributed Service using grpc - Project 3
 
-# Setup
-Clone this repository:
-`git clone https://github.gatech.edu/akumar401/cs6210Project3.git`
 
 # Dependencies
   1. `grpc` [How to Install](https://github.com/grpc/grpc/blob/master/INSTALL.md)
@@ -54,7 +51,7 @@ There are likely to be merge conflicts during this step. If so, first check what
 
 `git status`
 
-The files in conflict are the ones that are "Not staged for commit". Open these files using your favourite editor and look for lines containing `<<<<` and `>>>>`. Resolve conflicts as seems best (ask a TA if you are confused!) and then save the file. Once you have resolved all conflicts, stage the files that were in conflict:
+The files in conflict are the ones that are "Not staged for commit". Open these files using your favourite editor and look for lines containing `<<<<` and `>>>>`. Resolve conflicts as seems best and then save the file. Once you have resolved all conflicts, stage the files that were in conflict:
 
 `git add -A .`
 

@@ -3,7 +3,6 @@
   - In this project, you are going to implement major chunks of a simple distributed service using [grpc](http://www.grpc.io).
   - Learnings from this project will also help you in the next project as you will become familiar with grpc and multithreading with threadpool.
   - This is going to be a short project(`2 weeks`) so that you can devote more time to the next project.
-  - Due date: `Nov 4, 2016`
   
 ### Overview
   - You are going to build a store (You can think of Amazon Store!), which receives requests from different users, querying the prices offered by the different registered vendors.
@@ -55,12 +54,6 @@
   - Then finally run the command `./run_tests  $port_on_which_store_is_listening  $max_num_concurrent_client_requests` to start a process which will simulate real world clients sending requests at the same time.
   - This process read the queries from the file `product_query_list.txt`
   - It will send some queries and print back the results, which you can use to verify your whole system's flow.
-
-### Grading
-This project is not performance oriented, we will only test the functionality and correctness.  
-The Rubric will be:
-  - `Async client and server role of your store` - 50 pts
-  - `Threadpool management` - 50 pts
   
 ### Deliverables
 Please follow the instructions carefully. The folder you hand in must contain the following:
@@ -69,4 +62,3 @@ Please follow the instructions carefully. The folder you hand in must contain th
   - `Store source files` - store.cc(must) containing the source code for store management
   - `Threadpool source files` - threadpool.h(must), containing the source code for threadpool management
   - You can add supporting files too(in addition to above two), if you need to keep your code more structured, clean etc.
-Hand in your src folder as a zip file through [T-Square](t-square.gatech.edu)
